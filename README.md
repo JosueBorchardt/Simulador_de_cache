@@ -19,7 +19,7 @@ Esse trabalho foi desenvolvido com a linguagem de programação java ultilizando
 O projeto é composto pelos seguintes arquivos e seus conteúdos:
 
 - `src`
-    - Códigos implmentados em java
+    - Códigos implementados em java
 
 - `bin`   
     - Pastas e os arquivos compilados dos códigos implementados
