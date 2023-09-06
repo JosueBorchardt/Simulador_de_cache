@@ -9,7 +9,7 @@ public class Main {
         if (args.length != 6){
             System.out.println(args.length);
             System.out.println("Numero de argumentos incorreto. Utilize:");
-            System.out.println("cache_simulator <nsets> <bsize> <assoc> <substituição> <flag_saida> arquivo_de_entrada");
+            System.out.println("cache_simulator <nsets> <bsize> <assoc> <substituição> <flag_saida> <arquivo_de_entrada>");
             System.exit(1);
         }
         
@@ -43,8 +43,7 @@ public class Main {
             
             while(fileInputStream.read(bytes) != -1){
                 bitsEndereco = cache.bytesToInt(bytes);
-                cache.executarCache(bitsEndereco);               
-
+                cache.executarCache(bitsEndereco);
             }
             
         }catch(IOException e){

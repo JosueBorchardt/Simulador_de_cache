@@ -119,13 +119,13 @@ public class Cache {
         taxaMissCompulsorio = (double) nMissCompulsorio/nMiss;
         taxaMissCapacidade = (double) nMissCapacidade/nMiss;
         taxaMissConflito = (double) nMissConflito/nMiss;
-/*
-        taxaMiss = Math.round(taxaMiss * 10000)/10000;
-        taxaHit = Math.round(taxaHit * 10000)/10000;
-        taxaMissCompulsorio = Math.round(taxaMissCompulsorio * 10000)/10000;
-        taxaMissCapacidade = Math.round(taxaMissCapacidade * 10000)/10000;
-        taxaMissConflito = Math.round(taxaMissConflito * 10000)/10000;
-*/
+
+        taxaMiss = Math.round(taxaMiss * 10000.0)/10000.0;
+        taxaHit = Math.round(taxaHit * 10000.0)/10000.0;
+        taxaMissCompulsorio = Math.round(taxaMissCompulsorio * 10000.0)/10000.0;
+        taxaMissCapacidade = Math.round(taxaMissCapacidade * 10000.0)/10000.0;
+        taxaMissConflito = Math.round(taxaMissConflito * 10000.0)/10000.0;
+
         if(flagOut == 1){
             System.out.println(nAcessos + " " + taxaHit + " "+ taxaMiss +  " " + taxaMissCompulsorio + " " + taxaMissCapacidade + " " + taxaMissConflito);
         }else{
@@ -141,14 +141,6 @@ public class Cache {
             System.out.println("Número de misses de capacidade: " + nMissCapacidade);
             System.out.println("Taxa de misses de capacidade: " + taxaMissCapacidade);            
         }
-    }
-
-    public int getTamanhoIndice(){
-        return tamanhoIndice;
-    }
-
-    public int getTamanhoOffSet(){
-        return tamanhoOffSet;
     }
 
     public int getAssociatividade(){

@@ -1,11 +1,9 @@
 # Simulador de cache
 
-##Sumário
 [Introdução](#introdução)
 [Requisitos](#requisitos)
 [Estruturação dos Arquivos](#estrura-dos-aqruivos)
 [Instruções de uso](#instruções-de-uso)
-
 
 ## Introdução
 
@@ -14,9 +12,9 @@ Esse trabalho foi desenvolvido com a linguagem de programação java ultilizando
 ## Requisitos
 
 - É necessário que a JVM esteja instalado no computador
-- O projeto foi projetado com arquivos que executam no terminal do windows, caso seja necessário executar no Linux é possível que precise de adaptações
+- O projeto foi projetado com arquivos que executam no terminal do windows, caso seja necessário executar no Linux é possível que necessite de adaptações
 
-## Estrura dos Aqruivos
+## Estrutura dos Aqruivos
 
 O projeto é composto pelos seguintes arquivos e seus conteúdos:
 
@@ -33,4 +31,11 @@ O projeto é composto pelos seguintes arquivos e seus conteúdos:
 1. Abrir o Prompt de Comando
 2. Entrar no diretório da pasta `bin`
 3. Executar o comando:
-    cache_simulator <nsets> <bsize> <assoc> <substituição> <flag_saida> <arquivo_de_entrada> 
+    - cache_simulator `<nsets>` `<bsize>` `<assoc>` `<substituição>` `<flag_saida>` `<arquivo_de_entrada>`  
+        - nsets = número de conjuntos
+        - bsize = tamanho do bloco em bytes
+        - assoc = associatividade
+        - flag_saida = flag que ativa o modo padrão na saida de dados
+            - flag_saida(1) = *Total_de_acessos, Taxa_de_hit, Taxa_de_miss, Taxa_de_miss_compulsório, Taxa_de_miss_de_capacidade, Taxa_de_miss_de_conflito*
+        - arquivo_de_entrada = arquivo binario que contém os endereços para acesso a cache
+
