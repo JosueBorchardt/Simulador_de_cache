@@ -16,24 +16,24 @@ public class CacheLRU extends Cache {
     public void tratarFalta(int indice, int newTag){
         if(posicoesOcupadas[indice] == getAssociatividade()){
             for(int i = 0; i < (getAssociatividade() - 1); i++){
-                tag[indice][i] = tag[indice][i+1];
+                blocos[indice][i].setTag(blocos[indice][i+1].getTag());
             }
-            tag[indice][getAssociatividade() - 1] = newTag;
+            blocos[indice][getAssociatividade() - 1].setTag(newTag);
         }else{
-            bitValidade[indice][posicoesOcupadas[indice]] = true;
-            tag[indice][posicoesOcupadas[indice]] = newTag;
+            blocos[indice][posicoesOcupadas[indice]].setBitValidade(true);
+            blocos[indice][posicoesOcupadas[indice]].setTag(newTag);
             posicoesOcupadas[indice]++;
         }
     }
 
     @Override
     public void atualicaoCasoHit(int indice, int via){
-        int newLRU = tag[indice][via];
+        int newLRU = blocos[indice][via].getTag();
         for(int i = via; i < (posicoesOcupadas[indice] - 1); i++){
-            tag[indice][i] = tag[indice][i+1];
+            blocos[indice][i].setTag(blocos[indice][i+1].getTag());
         }
         int novaPosicao = posicoesOcupadas[indice] - 1;
-        tag[indice][novaPosicao] = newLRU;
+        blocos[indice][novaPosicao].setTag(newLRU);
         addHits();
     }
 }

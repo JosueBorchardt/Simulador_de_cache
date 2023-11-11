@@ -15,8 +15,7 @@ public class Cache {
     private int tamanhoIndice;
     private int tamanhoOffSet;
 
-    protected boolean[][] bitValidade;
-    protected int[][] tag;
+    protected Bloco[][] blocos;
 
     public Cache(){
         
@@ -37,12 +36,15 @@ public class Cache {
         tamanhoOffSet = (int) (Math.log(bSize)/Math.log(2));
         tamanhoIndice = (int) (Math.log(nSets)/Math.log(2));
         
-        bitValidade = new boolean[nSets][associatividade];
-        tag = new int[nSets][associatividade];
+        blocos = new Bloco[nSets][associatividade];
+
+        //bitValidade = new boolean[nSets][associatividade];
+        //tag = new int[nSets][associatividade];
 
         for(int i = 0; i < nSets; i++){
             for(int j = 0; j < associatividade; j++){
-               bitValidade[i][j] = false; 
+                blocos[i][j] = new Bloco();
+                //bitValidade[i][j] = false; 
             }            
         }
     }
@@ -60,18 +62,21 @@ public class Cache {
         int indice;
         int newTag;
         
+        //O OffSet é descartado uma vez que não é necessário seu uso para a simulação
         endereco = endereco >> tamanhoOffSet; 
         
+        //Cria e aplica uma máscara com intuito de adquirir apenas os bits referentes ao índice
         mascara = (int) (Math.pow(2, tamanhoIndice) - 1);
-        
         indice = endereco & mascara;
+
+        //Retira os bits do indice sobrando apenas a tag
         newTag = endereco >> tamanhoIndice;
 
         int verificarMiss = 0;
         int verificarMissCompulsorio = 0;
         for(int i = 0; i < associatividade; i++){
-           if(bitValidade[indice][i]){
-                if(tag[indice][i] == newTag){
+           if(blocos[indice][i].getBitValidade()){
+                if(blocos[indice][i].getTag() == newTag){
                     atualicaoCasoHit(indice, i);
                     break;    
                 }           

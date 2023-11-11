@@ -18,11 +18,11 @@ public class CacheRandom extends Cache {
         if(posicoesOcupadas[indice] == getAssociatividade()){
             Random rand = new Random();
             int posicaoAleatoria = rand.nextInt(getAssociatividade());
-            bitValidade[indice][posicaoAleatoria] = true;
-            tag[indice][posicaoAleatoria] = newTag;
+            blocos[indice][posicaoAleatoria].setBitValidade(true);
+            blocos[indice][posicaoAleatoria].setTag(newTag);
         }else{
-            bitValidade[indice][posicoesOcupadas[indice]] = true;
-            tag[indice][posicoesOcupadas[indice]] = newTag;            
+            blocos[indice][posicoesOcupadas[indice]].setBitValidade(true);;
+            blocos[indice][posicoesOcupadas[indice]].setTag(newTag);            
             posicoesOcupadas[indice]++;
         }
         

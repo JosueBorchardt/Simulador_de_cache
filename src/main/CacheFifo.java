@@ -14,8 +14,8 @@ public class CacheFifo extends Cache {
     @Override
     public void tratarFalta(int indice, int newTag){
         int posicao = posicaoDeSubstituicao[indice];
-        bitValidade[indice][posicao] = true;
-        tag[indice][posicao] = newTag;
+        blocos[indice][posicao].setBitValidade(true);
+        blocos[indice][posicao].setTag(newTag);
         posicaoDeSubstituicao[indice] = (posicaoDeSubstituicao[indice] + 1)%this.getAssociatividade();
     }
     
